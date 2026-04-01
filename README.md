@@ -12,8 +12,6 @@ Automatizirani testovi za [Booking.com](https://www.booking.com) korištenjem Se
 - [Pokretanje testova](#pokretanje-testova)
 - [Struktura projekta](#struktura-projekta)
 - [Test slučajevi](#test-slučajevi)
-- [Doprinos](#doprinos)
-- [Licenca](#licenca)
 
 ## Pregled
 
