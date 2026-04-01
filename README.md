@@ -8,11 +8,7 @@ Automatizirani testovi za [Booking.com](https://www.booking.com) korištenjem Se
 - [Karakteristike](#karakteristike)
 - [Preduslovi](#preduslovi)
 - [Instalacija](#instalacija)
-- [Konfiguracija](#konfiguracija)
-- [Pokretanje testova](#pokretanje-testova)
-- [Struktura projekta](#struktura-projekta)
-- [Test slučajevi](#test-slučajevi)
-
+  
 ## Pregled
 
 Ovaj projekat sadrži automatizirane UI testove za Booking.com, pokrivajući ključne korisničke tokove kao što su:
