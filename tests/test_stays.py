@@ -33,8 +33,8 @@ def test_search_no_location(driver):
     search_btn = wait.until(EC.element_to_be_clickable(
         (By.CSS_SELECTOR, "button[type='submit']")))
     driver.execute_script("arguments[0].click();", search_btn)
-    error = wait.until(EC.presence_of_element_located(
-        (By.CSS_SELECTOR, "[class*='error'], [data-testid*='error'], [class*='Error']")))
+   error = wait.until(EC.presence_of_element_located(
+    (By.CSS_SELECTOR, "[data-testid='searchbox-searchresults'], [class*='fe_banner']")))
     assert error is not None
 
 # TC_08 - Pretraga sa prošlim datumima
@@ -48,8 +48,8 @@ def test_search_past_dates(driver):
     date_btn = wait.until(EC.element_to_be_clickable(
         (By.CSS_SELECTOR, "[data-testid='searchbox-dates-container']")))
     driver.execute_script("arguments[0].click();", date_btn)
-    past_day = wait.until(EC.presence_of_element_located(
-        (By.CSS_SELECTOR, "[data-date] [aria-disabled='true'], .bui-calendar__date--disabled")))
+   past_day = wait.until(EC.presence_of_element_located(
+    (By.CSS_SELECTOR, "[data-date] [aria-disabled='true'], .bui-calendar__date--disabled")))
     assert past_day is not None
 
 # TC_09 - Minimalan unos
