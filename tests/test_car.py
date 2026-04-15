@@ -10,18 +10,17 @@ def accept_cookies(driver, wait):
         pass
 
 # TC_16 - Pretraga auta validna
+# TC_16 - Pretraga auta validna
 def test_car_valid_search(driver):
     driver.get("https://www.booking.com/cars")
     wait = WebDriverWait(driver, 20)
     accept_cookies(driver, wait)
-    pickup = wait.until(EC.presence_of_element_located(
-        (By.CSS_SELECTOR, "input[name*='pickup'], input[placeholder*='Pick-up'], input[id*='pickup']")))
     pickup = wait.until(EC.element_to_be_clickable(
-    (By.CSS_SELECTOR, "input[name*='pickup'], input[placeholder*='Pick-up'], input[id*='pickup']")))
-driver.execute_script("arguments[0].click();", pickup)
-pickup = driver.find_element(By.CSS_SELECTOR, "input[name*='pickup'], input[placeholder*='Pick-up'], input[id*='pickup']")
-pickup.send_keys("Sarajevo")
-assert True
+        (By.CSS_SELECTOR, "input[name*='pickup'], input[placeholder*='Pick-up'], input[id*='pickup']")))
+    driver.execute_script("arguments[0].click();", pickup)
+    pickup = driver.find_element(By.CSS_SELECTOR, "input[name*='pickup'], input[placeholder*='Pick-up'], input[id*='pickup']")
+    pickup.send_keys("Sarajevo")
+    assert True
 # TC_17 - Car rental nevalidni datumi
 def test_car_invalid_dates(driver):
     driver.get("https://www.booking.com/cars")
