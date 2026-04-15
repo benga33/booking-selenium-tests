@@ -14,9 +14,10 @@ def test_taxi_valid(driver):
     driver.get("https://www.booking.com/taxi")
     wait = WebDriverWait(driver, 15)
     accept_cookies(driver, wait)
-    pickup = wait.until(EC.presence_of_element_located(
-        (By.CSS_SELECTOR, "input[placeholder*='Pick-up'], input[name*='pickup'], input[id*='origin']")))
-    pickup.clear()
+    pickup = wait.until(EC.element_to_be_clickable(
+        (By.CSS_SELECTOR, "input[placeholder*='Pick-up'], input[id*='origin']")))
+    driver.execute_script("arguments[0].click();", pickup)
+    pickup = driver.find_element(By.CSS_SELECTOR, "input[placeholder*='Pick-up'], input[id*='origin']")
     pickup.send_keys("Sarajevo Airport")
     assert True
 
