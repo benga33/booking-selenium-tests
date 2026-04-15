@@ -8,8 +8,6 @@ def accept_cookies(driver, wait):
         btn.click()
     except:
         pass
-
-# TC_16 - Pretraga auta validna
 # TC_16 - Pretraga auta validna
 def test_car_valid_search(driver):
     driver.get("https://www.booking.com/cars")
