@@ -15,7 +15,7 @@ def test_flights_valid_search(driver):
     wait = WebDriverWait(driver, 15)
     accept_cookies(driver, wait)
     origin = wait.until(EC.presence_of_element_located(
-        (By.CSS_SELECTOR, "input[placeholder*='From'], input[aria-label*='origin'], input[aria-label*='From']")))
+    (By.CSS_SELECTOR, "input[data-testid='search-box-origin']")))
     origin.clear()
     origin.send_keys("Sarajevo")
     import time; time.sleep(1)
