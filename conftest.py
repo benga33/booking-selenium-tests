@@ -3,7 +3,7 @@ from selenium import webdriver
 import pickle
 import os
 
-LT_USERNAME = "tvoj_username"
+LT_USERNAME = "quandalenottrippin"
 LT_ACCESS_KEY = "tvoj_access_key"
 
 @pytest.fixture
@@ -11,7 +11,7 @@ def driver(request):
     test_name = request.node.name
 
     lt_options = {
-        "user": quandalenottrippin,
+        "user": LT_USERNAME,
         "accessKey": LT_ACCESS_KEY,
         "build": "Booking Selenium Tests",
         "name": test_name,
