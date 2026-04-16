@@ -3,9 +3,33 @@ from selenium import webdriver
 import pickle
 import os
 
+LT_USERNAME = "tvoj_username"
+LT_ACCESS_KEY = "tvoj_access_key"
+
 @pytest.fixture
-def driver():
-    d = webdriver.Chrome()
+def driver(request):
+    test_name = request.node.name
+
+    lt_options = {
+        "user": quandalenottrippin,
+        "accessKey": LT_ACCESS_KEY,
+        "build": "Booking Selenium Tests",
+        "name": test_name,
+        "platformName": "Windows 11",
+        "browserName": "Chrome",
+        "browserVersion": "latest",
+        "video": True,
+        "selenium_version": "4.0.0"
+    }
+
+    options = webdriver.ChromeOptions()
+    options.set_capability("LT:Options", lt_options)
+
+    d = webdriver.Remote(
+        command_executor="https://hub.lambdatest.com/wd/hub",
+        options=options
+    )
+
     d.implicitly_wait(10)
     d.get("https://www.booking.com")
 
