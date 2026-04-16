@@ -10,7 +10,6 @@ def accept_cookies(driver, wait):
     except:
         pass
 
-# TC_06 - Pretraga validna
 def test_search_valid_stays(driver):
     driver.get("https://www.booking.com")
     wait = WebDriverWait(driver, 15)
@@ -25,7 +24,6 @@ def test_search_valid_stays(driver):
         (By.CSS_SELECTOR, "[data-testid='property-card']")))
     assert results is not None
 
-# TC_07 - Pretraga bez lokacije
 def test_search_no_location(driver):
     driver.get("https://www.booking.com")
     wait = WebDriverWait(driver, 15)
@@ -33,11 +31,10 @@ def test_search_no_location(driver):
     search_btn = wait.until(EC.element_to_be_clickable(
         (By.CSS_SELECTOR, "button[type='submit']")))
     driver.execute_script("arguments[0].click();", search_btn)
-   error = wait.until(EC.presence_of_element_located(
-    (By.CSS_SELECTOR, "[data-testid='searchbox-searchresults'], [class*='fe_banner']")))
+    error = wait.until(EC.presence_of_element_located(
+        (By.CSS_SELECTOR, "div.b9b405fa52")))
     assert error is not None
 
-# TC_08 - Pretraga sa prošlim datumima
 def test_search_past_dates(driver):
     driver.get("https://www.booking.com")
     wait = WebDriverWait(driver, 15)
@@ -48,11 +45,10 @@ def test_search_past_dates(driver):
     date_btn = wait.until(EC.element_to_be_clickable(
         (By.CSS_SELECTOR, "[data-testid='searchbox-dates-container']")))
     driver.execute_script("arguments[0].click();", date_btn)
-   past_day = wait.until(EC.presence_of_element_located(
-    (By.CSS_SELECTOR, "[data-date] [aria-disabled='true'], .bui-calendar__date--disabled")))
+    past_day = wait.until(EC.presence_of_element_located(
+        (By.CSS_SELECTOR, "span[aria-disabled='true']")))
     assert past_day is not None
 
-# TC_09 - Minimalan unos
 def test_search_min_input(driver):
     driver.get("https://www.booking.com")
     wait = WebDriverWait(driver, 15)
@@ -64,7 +60,6 @@ def test_search_min_input(driver):
         (By.CSS_SELECTOR, "[data-testid='autocomplete-results'], [class*='autocomplete']")))
     assert dropdown is not None
 
-# TC_10 - Maksimalan unos
 def test_search_max_input(driver):
     driver.get("https://www.booking.com")
     wait = WebDriverWait(driver, 15)
