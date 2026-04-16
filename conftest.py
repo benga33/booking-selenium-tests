@@ -4,7 +4,7 @@ import pickle
 import os
 
 LT_USERNAME = "quandalenottrippin"
-LT_ACCESS_KEY = "tvoj_access_key"
+LT_ACCESS_KEY = "LT_28vgXKTx7CgtfKOWwYuA4x8Njm5jlOTK1U9x1UNGYEAYDtw"
 
 @pytest.fixture
 def driver(request):
@@ -23,6 +23,7 @@ def driver(request):
     }
 
     options = webdriver.ChromeOptions()
+    options.add_argument("--disable-blink-features=AutomationControlled")
     options.set_capability("LT:Options", lt_options)
 
     d = webdriver.Remote(
