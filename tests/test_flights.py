@@ -9,13 +9,12 @@ def accept_cookies(driver, wait):
     except:
         pass
 
-# TC_14 - Pretraga letova validna
 def test_flights_valid_search(driver):
     driver.get("https://www.booking.com/flights")
     wait = WebDriverWait(driver, 15)
     accept_cookies(driver, wait)
     origin = wait.until(EC.presence_of_element_located(
-    (By.CSS_SELECTOR, "input[data-testid='search-box-origin']")))
+        (By.CSS_SELECTOR, "input[data-test-origin]")))
     origin.clear()
     origin.send_keys("Sarajevo")
     import time; time.sleep(1)
@@ -27,7 +26,6 @@ def test_flights_valid_search(driver):
         pass
     assert True
 
-# TC_15 - Flights bez destinacije
 def test_flights_no_destination(driver):
     driver.get("https://www.booking.com/flights")
     wait = WebDriverWait(driver, 15)
@@ -40,4 +38,4 @@ def test_flights_no_destination(driver):
             (By.CSS_SELECTOR, "[class*='error'], [role='alert'], [class*='Error']")))
         assert error is not None
     except:
-        assert True  # stranica može spriječiti submit drugačije
+        assert True
